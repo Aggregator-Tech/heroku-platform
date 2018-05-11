@@ -7,6 +7,16 @@
  */
 
 // Apply the java-library plugin to add support for Java Library
+task staging {
+    doLast {
+        println 'Hello world!'
+    }
+}
+task stage {
+    doLast {
+        println 'Hello world!'
+    }
+}
 apply plugin: 'java-library'
 
 // In this section you declare where to find the dependencies of your project
