@@ -9,16 +9,14 @@ mainClassName = "webTemplate.service.Server"
  */
 
 // Apply the java-library plugin to add support for Java Library
-task staging {
-    doLast {
-        println 'Hello world!'
-    }
-}
+
 task stage {
     doLast {
-        println 'Hello world!'
+        println 'Hello world!'        
     }
 }
+stage.dependsOn 'run'
+
 apply plugin: 'java-library'
 
 // In this section you declare where to find the dependencies of your project
@@ -26,6 +24,9 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    flatDir {
+       dirs 'deployable-artifacts'
+   }
 }
 
 dependencies {
@@ -37,6 +38,12 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
-    externalLibs files('deployable-artifacts/webTemplate-1.0.jar')
+    
+    compile 'webTemplate.service:webTemplate-1.0'
+    compile (
+            [group: 'org.glassfish.jersey.containers', name: 'jersey-container-grizzly2-http', version:'2.26'],
+            [group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version:'2.26'],
+            [group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.4.1']
+    )
+    
 }
-
