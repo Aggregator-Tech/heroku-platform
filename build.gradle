@@ -29,7 +29,7 @@ repositories {
 }
 configurations {
     
-    externalLibs
+    runtimeClasspath +=externalLibs
     
 }
 dependencies {
