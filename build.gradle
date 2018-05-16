@@ -15,7 +15,7 @@ task stage {
         println 'Hello world!'        
     }
 }
-stage.dependsOn 'run'
+//stage.dependsOn 'run'
 
 apply plugin: 'java-library'
 
