@@ -19,7 +19,7 @@ task stage {
 }
 task unzip(type: Copy) {
     def zipFile = file('deployable-artifacts/webTemplate-1.0.zip')
-    def outputDir = file("${buildDir}/build/install")
+    def outputDir = file("${buildDir}/install")
 
     from zipTree(zipFile)
     into outputDir
