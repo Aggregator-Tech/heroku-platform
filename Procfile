@@ -1,1 +1,2 @@
-web: webTemplate/build/install/webTemplate-1.0/bin/webTemplate
+web: build/install/webTemplate-1.0/bin/webTemplate
+
