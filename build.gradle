@@ -11,11 +11,20 @@ mainClassName = "webTemplate.service.Server"
 // Apply the java-library plugin to add support for Java Library
 
 task stage {
+//unzip the zip file in webTemplate/build/install/webTemplate/bin/webTemplate
+   
     doLast {
         println 'Hello world!'        
     }
 }
-//stage.dependsOn 'run'
+task unzip(type: Copy) {
+    def zipFile = file('deployable-artifacts/webTemplate-1.0.zip')
+    def outputDir = file("${buildDir}/build/install")
+
+    from zipTree(zipFile)
+    into outputDir
+}
+stage.dependsOn 'unzip'
 
 apply plugin: 'java-library'
 
