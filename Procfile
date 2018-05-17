@@ -1,2 +1,2 @@
-web: build/install/webTemplate-1.0/bin/webTemplate12
+web: build/install/webTemplate-1.0/bin/webTemplate123
 
